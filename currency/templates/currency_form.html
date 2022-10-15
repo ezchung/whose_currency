@@ -1,0 +1,46 @@
+{% extends 'index.html' %} {% block title %} Whose Currency {% endblock %} {%
+block content %}
+
+<h1 class="pt-4 mb-3 text-center">Getting Currency</h1>
+
+<div class="ms-3 me-3">
+  <form action="/results" class="pb-4">
+    <div class="mb-3 row">
+      <label class="col-5 col-form-label text-end">Converting From</label>
+      <div class="col-7">
+        <input
+          name="currency_from"
+          required
+          aria-label="currency_from"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label class="col-5 col-form-label text-end">Converting To</label>
+      <div class="col-7">
+        <input
+          name="currency_to"
+          required
+          aria-label="currency_to"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label class="col-5 col-form-label text-end">Amount</label>
+      <div class="col-7">
+        <input
+          name="amount"
+          required
+          aria-label="amount"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-lg w-100">Get Currency</button>
+  </form>
+</div>
+
+{% endblock %}
