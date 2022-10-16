@@ -48,19 +48,20 @@ def get_results():
     if msg:
         return render_template("currency_form.html")
 
-    conversion = round(
-        currency_rates.convert(
-            currency_from,
-            currency_to,
-            float(amount)
-        ),
-        2)
+    conversion = currency_rates.convert(
+        currency_from,
+        currency_to,
+        float(amount)
+    )
+
+    rounded_conversion = format(round(conversion, 2), '.2f')
+
     curr_symbol = currency_codes.get_symbol(currency_to)
 
     return render_template(
         "/results.html",
         curr_symbol=curr_symbol,
-        conversion=conversion,
+        conversion=rounded_conversion,
     )
 
 

@@ -1,12 +1,17 @@
 import app as app_module
 from app import app
 from unittest import TestCase
+
+from flask import session
+
 from forex_python.converter import CurrencyRates, CurrencyCodes
 
 # Make Flask errors be real errors, not HTML pages with error info
 app.config['TESTING'] = True
 
 app.config['DEBUG_TB_HOSTS'] = ['dont-show-debug-toolbar']
+
+test_currency_code = "USD"
 
 
 class CurrencyFormTestCase(TestCase):
@@ -19,20 +24,32 @@ class CurrencyFormTestCase(TestCase):
         app.config['TESTING'] = True
 
     def test_homepage(self):
-        """Make sure information is in the session and HTML is displayed"""
+        """Test to see correct HTML is displayed """
+
         with self.client as client:
             resp = client.get('/')
             html = resp.get_data(as_text=True)
-            print(resp.status_code)
+
             self.assertIn("Testing Currency Form", html)
             self.assertEqual(resp.status_code, 200)
 
-            # response = client.get('/')
-            # html = response.get_data(as_text=True)
-            # print("____________im here html________________", html)
+    # def test_results(self):
+    #     """ Test to see if returning correct information"""
 
-            # # test that you're getting a template
-            # self.assertIn('<div class="ms-3 me-3">',
-            #               html
-            #               )
-            # self.assertEqual(response.status_code, 200)
+    #     answers = dict(
+    #         curr_symbol="$",
+    #         conversion=1
+    #     )
+
+    #     with self.client as client:
+    #         resp = client.get('/results', curr_symbol="$",
+    #                           conversion=1)
+            #html = resp.get_data(as_text=True)
+            #print(html, "___________html_______")
+
+            # self.assertIn("Testing Results HTML", html)
+            # self.assertEqual(resp.status_code, 200)
+
+    def test_currency(self):
+        """Test currency that returns true or none based on whether symbol exists"""
+        assert is_currency_code("USD") == True
