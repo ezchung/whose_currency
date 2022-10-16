@@ -1,3 +1,10 @@
+"use strict";
+
+/** Take a word and return boolean if the letters provided while reconfiguring
+ * ever bring a word that is a palindrome
+ * Input: word       Output: boolean of whether they can be palindrome
+ */
+
 function scrambledPalindromeCheck(word) {
   let wordLen = word.length;
 
@@ -24,7 +31,7 @@ function scrambledPalindromeCheck(word) {
 
 //Problem
 //Take a word and return boolean if the letters provided while reconfiguing
-//ever brind a word that is a palindrome
+//ever bring a word that is a palindrome
 //Input: String of letters
 //Output: Boolean
 

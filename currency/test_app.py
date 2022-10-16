@@ -50,6 +50,6 @@ class CurrencyFormTestCase(TestCase):
             # self.assertIn("Testing Results HTML", html)
             # self.assertEqual(resp.status_code, 200)
 
-    def test_currency(self):
-        """Test currency that returns true or none based on whether symbol exists"""
-        assert is_currency_code("USD") == True
+    # def test_currency(self):
+    #     """Test currency that returns true or none based on whether symbol exists"""
+    #     assert is_currency_code("USD") == True
