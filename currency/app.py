@@ -4,7 +4,7 @@ from flask import Flask, request, render_template, jsonify, flash
 from flask_debugtoolbar import DebugToolbarExtension
 
 from forex_python.converter import CurrencyRates, CurrencyCodes
-import datetime
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret"
