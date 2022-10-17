@@ -1,10 +1,8 @@
 from flask import Flask, request, render_template, jsonify, flash
 
-#from stories import silly_story, excited_story
 from flask_debugtoolbar import DebugToolbarExtension
 
 from forex_python.converter import CurrencyRates, CurrencyCodes
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret"
@@ -72,17 +70,24 @@ def get_results():
 
 
 def is_currency_code(code):
+
     if currency_codes.get_symbol(code):
         return True
     return None
 
 
 """
-    Pass in the amount. If amount is not a number, returns false. Otherwise, 
-    returns true.
+    Pass in the amount as a string. If amount is not a number, returns false. 
+    Otherwise, returns true.
     Input: amount       Output: boolean
 """
 
 
 def is_num(amount):
-    return amount.isnumeric()
+    if not (amount.upper() == amount.lower()):
+        return False
+
+    converted_amount = float(amount)
+    if (isinstance(converted_amount, float)):
+        return True
+    return False

@@ -46,7 +46,8 @@ Answer the following questions below:
 
 - How do you collect data from a URL placeholder parameter using Flask?
 
-\*>>>>>>>>>>>>>>pass it in through the parameters when calling function. Use request.form or .args to call the name of the object key and get the value.
+\*Pass it in through the parameters when calling function. Use request.args or .form depending on if it is a form to call the name of the object key and get the value.
+\*After using request.args, can convert to a regular dictionary or look for specific key.
 
 - How do you collect data from the query string using Flask?
 
@@ -54,7 +55,7 @@ Answer the following questions below:
 
 - How do you collect data from the body of a POST request using Flask?
 
-\*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Used request.form to reach
+\*Using request.get_json(), we now have access to the data.
 
 - What is a cookie and what kinds of things are they commonly used for?
 

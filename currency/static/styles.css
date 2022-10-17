@@ -1,0 +1,28 @@
+button {
+  margin-top: 5px;
+  border-radius: 8px;
+  background-color: lightblue;
+  width: 100px;
+  height: 50px;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+.row {
+  margin: 5px;
+}
+
+.error_msg {
+  display: inline-block;
+  border: 1px solid red;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 2em;
+  background-color: yellow;
+}
+
+.col-form-label {
+  font-weight: bold;
+}
